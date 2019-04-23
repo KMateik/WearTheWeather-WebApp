@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color:#469df4;">
+<style>
+
+.box {
+  margin: auto;
+  margin-top: 70px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.4);
+  width: 600px;
+  height: 400px;
+  -webkit-box-shadow: 6px 6px 11px -4px rgba(0,0,0,0.11);
+  box-shadow: 6px 6px 11px -4px rgba(0,0,0,0.11);
+}
+
+.box p {
+  margin: 5%;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.navbar {
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.4);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  -webkit-box-shadow: 6px 6px 11px -4px rgba(0,0,0,0.11);
+  box-shadow: 6px 6px 11px -4px rgba(0,0,0,0.11);
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+ input[type=text] {
+  width: 350px;
+  padding: 11px ;
+  margin: 8px 10px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.11);
+  border-width:0px
+}
+</style>
+
+<!-- Navigation bar -->
+<div class="navbar">
+  <a href="#home"> WEAR THE WEATHER </a>
+  <a href="#packingPlanner" style="float:right">PACKING PLANNER</a>
+  <a href="#home" style="float:right">HOME</a>
+</div>
+
+<!-- Below navbar -->
+<div style="margin-top: 100px;">
+<h1 style="text-align:center; color:#ffffff;text-shadow: 2px 3px rgba(0,0,0,0.11);">WEAR THE WEATHER</h1>
+
+<!-- Start of form -->
+<form name="travel_input" action="placeHolder.php" method="post">
+
+    <p style="text-align:center;"><input type="text" size=65 name="destination" placeholder="ENTER YOUR DESTINATION" >
+    <button type="button" style="border-radius:70px; height:40px; width:190px;box-shadow: 5px 5px 5px rgba(0,0,0,0.11); border-width:0px">USE CURRENT LOCATION</button></p>
+
+    <p style="text-align:center;">
+
+    <input type="submit" style="border-radius:70px; height:40px; width:190px;box-shadow: 5px 5px 5px rgba(0,0,0,0.11); border-width:0px" value="SUBMIT">		</p>
+</form>
+
+<!-- Start of Boxes -->
+<div class="box">
+   <p style="text-align:center;">TODAY</p>
+   <p>HIGH:</p>
+   <p>LOW:</p>
+   <p>PERCIPITATION:</p>
+   <p>RECCOMENDATION:</p>
+</div>
+
+
+</body>
+</html>
