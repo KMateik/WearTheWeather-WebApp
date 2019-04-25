@@ -1,0 +1,48 @@
+body {
+  background-color: #31e2dd;
+}
+
+.Main {
+  width: 60%;
+  background-color: #23a09d;
+}
+
+.Centered {
+  margin: auto;
+  text-align: center;
+}
+
+#mainTitle {
+  text-align: center;
+  font-size: 3em;
+}
+
+ul.tabs{
+      width: 50%;
+      margin: auto;
+			padding: 0px;
+			list-style: none;
+      text-align: center;
+		}
+		ul.tabs li{
+			background: #27bcb9;
+			color: #222;
+			display: inline-block;
+			padding: 10px 15px;
+			cursor: pointer;
+		}
+
+		ul.tabs li.current{
+			background: #ededed;
+			color: #222;
+		}
+
+		.tab-content{
+			display: none;
+			background: #ededed;
+			padding: 15px;
+		}
+
+		.tab-content.current{
+			display: inherit;
+		}
