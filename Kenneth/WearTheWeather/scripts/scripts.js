@@ -12,7 +12,6 @@ $(document).ready(function(){
 
 });
 
-// Listens for Submit button press
 $(document).ready(function(){
   $("button").click(function(){
     var value = $("input").val();
@@ -26,25 +25,6 @@ $(document).ready(function(){
     });
 		$(".box").show();
   });
-});
-
-// Listens for Enter Key press in the location box
-$(document).ready(function(){
-	$('#location-input').keypress(function(event){
-	  var keycode = (event.keyCode ? event.keyCode : event.which);
-	  if(keycode == '13'){
-			var value = $("input").val();
-			console.log(value);
-			var geocodingParams = {
-					searchText: value
-			};
-			console.log(geocodingParams);
-			geocoder.geocode(geocodingParams, onResult, function(e) {
-				alert(e);
-			});
-			$(".box").show();
-	  }
-	});
 });
 
 var platform = new H.service.Platform({
@@ -82,10 +62,11 @@ var onResult = function(result) {
 			document.getElementsByClassName("LowTemp")[0].innerHTML =
 			"LOW: " + jsonResponse.daily.data[0].apparentTemperatureLow + "F";
 			document.getElementsByClassName("PrecipCh")[0].innerHTML =
-			"PRECIPITATION: " + (jsonResponse.daily.data[0].precipProbability * 100).toFixed(2) + "%";
+			"PRECIPITATION: " + (jsonResponse.daily.data[0].precipProbability * 100) + "%";
 			document.getElementsByClassName("WindSpd")[0].innerHTML =
 			"WIND: " + jsonResponse.daily.data[0].windSpeed + "mph";
-
+			let temp = {temp: apparentTemperatureHigh};
+			getRecommendation(temp);
     }
   };
   xhttp.open("GET", "proxy.php?lat=" + position.lat + "&lng=" + position.lng, true);
@@ -93,6 +74,13 @@ var onResult = function(result) {
 
   console.log(position);
 };
+
+function getRecommendation(temp) {
+	$.post("engine.php", temp, function(result){
+		console.log("database success!", result);
+		$("p.Recommendation").append(result);
+	});
+}
 
 // Get an instance of the geocoding service:
 var geocoder = platform.getGeocodingService();
