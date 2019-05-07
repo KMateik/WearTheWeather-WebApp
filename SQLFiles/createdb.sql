@@ -96,8 +96,8 @@ CREATE TABLE IF NOT EXISTS 'clothes','recommendations'(
   PRIMARY KEY ('recID'));
                
 INSERT INTO recommendations(weatherCondition, recs) VALUES('freezing', 'Wear multiple layers and a winter jacket with long pants'),
-               ('cold', 'Wear light layers and a autumn jacket. Sweater weather')
-               ('hot', 'Wear short sleeves and a short pants');
+               ('cold', 'Wear light layers and a autumn jacket. Sweater weather'),
+               ('hot', 'Wear short sleeves and short pants');
 
 INSERT INTO precipitation (precipType,precipRec,precipRange)VALUES ('no rain', 'no rain', '0'), 
 ('light rain','bring an umbrella','0.098'), 
