@@ -93,11 +93,11 @@ CREATE TABLE IF NOT EXISTS 'clothes','recommendations'(
   'recID' INT NOT NULL AUTO_INCREMENT,
   'weatherCondition' VARCHAR(45) NULL,
   'recs', VARCHAR(45) NULL,
-  PRIMARY KEY ('recID'))
+  PRIMARY KEY ('recID'));
                
 INSERT INTO recommendations(weatherCondition, recs) VALUES('freezing', 'Wear multiple layers and a winter jacket with long pants'),
                ('cold', 'Wear light layers and a autumn jacket. Sweater weather')
-               ('hot', 'Wear short sleeves and a short pants')
+               ('hot', 'Wear short sleeves and a short pants');
 
 INSERT INTO precipitation (precipType,precipRec,precipRange)VALUES ('no rain', 'no rain', '0'), 
 ('light rain','bring an umbrella','0.098'), 
