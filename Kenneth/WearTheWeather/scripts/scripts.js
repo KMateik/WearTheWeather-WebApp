@@ -15,11 +15,11 @@ $(document).ready(function(){
 $(document).ready(function(){
   $("button").click(function(){
     var value = $("input").val();
-    console.log(value);
+    console.log("User Input: ", value);
     var geocodingParams = {
         searchText: value
     };
-    console.log(geocodingParams);
+    console.log("Geocode Send: ", geocodingParams);
     geocoder.geocode(geocodingParams, onResult, function(e) {
       alert(e);
     });
@@ -55,8 +55,8 @@ var onResult = function(result) {
       //document.getElementById("response").innerHTML =
       //this.responseText;
 			var jsonResponse = JSON.parse(this.responseText);
-			console.log(jsonResponse);
-			console.log(jsonResponse.daily.data[0].apparentTemperatureHigh);
+			console.log("DarkSkyResponse: ", jsonResponse);
+			//console.log(jsonResponse.daily.data[0].apparentTemperatureHigh);
 			document.getElementsByClassName("HighTemp")[0].innerHTML =
 			"HIGH: " + jsonResponse.daily.data[0].apparentTemperatureHigh + "F";
 			document.getElementsByClassName("LowTemp")[0].innerHTML =
@@ -65,20 +65,22 @@ var onResult = function(result) {
 			"PRECIPITATION: " + (jsonResponse.daily.data[0].precipProbability * 100) + "%";
 			document.getElementsByClassName("WindSpd")[0].innerHTML =
 			"WIND: " + jsonResponse.daily.data[0].windSpeed + "mph";
-			let temp = {temp: apparentTemperatureHigh};
+			let temp = {temp: jsonResponse.daily.data[0].apparentTemperatureHigh};
+			console.log("tempSent: ", temp);
 			getRecommendation(temp);
     }
   };
   xhttp.open("GET", "proxy.php?lat=" + position.lat + "&lng=" + position.lng, true);
   xhttp.send();
 
-  console.log(position);
+  console.log("Geocode Response: ", position);
 };
 
 function getRecommendation(temp) {
+	console.log("temp Posted: ", temp);
 	$.post("engine.php", temp, function(result){
 		console.log("database success!", result);
-		$("p.Recommendation").append(result);
+		$("p.RecText").append(result);
 	});
 }
 

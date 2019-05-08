@@ -11,10 +11,14 @@ body {
   text-align: center;
 }
 
+.RecText {
+  font-size: 1.8em !important;
+  border-style: solid;
+}
+
 .box {
   display: none;
   margin: auto;
-  margin-top: 70px;
   padding: 10px;
   background: rgba(255, 255, 255, 0.4);
   width: 600px;
@@ -22,7 +26,6 @@ body {
   box-shadow: 6px 6px 11px -4px rgba(0,0,0,0.11);
 }
 .box p {
-  margin: 5%;
   font-weight: bold;
   color: #ffffff;
   font-size: 20px;
