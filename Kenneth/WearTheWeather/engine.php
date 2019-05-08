@@ -15,20 +15,29 @@ if ($conn->connect_error) {
 $temp = (int)$_POST['temp'];
 
 switch ($temp) {
-  case < 30:
+  case $temp < 30:
     // code...
-    $sql = "SELECT * FROM recommendations Where recID = " . $temp;
+    $sql = "SELECT recs FROM recommendations Where recID = 1";
     break;
-  case < 30:
+  case $temp >= 30 && $temp < 60:
     // code...
-    $sql = "SELECT * FROM recommendations Where recID = " . $temp;
-    break;    
+    $sql = "SELECT recs FROM recommendations Where recID = 2";
+    break;
+  case $temp >= 60:
+    // code...
+    $sql = "SELECT recs FROM recommendations Where recID = 3";
+    break;
   default:
     // code...
+    echo "Switch Statement Failed";
     break;
 }
 
-
 $result = $conn->query($sql);
-echo $result;
+
+while ($row = $result->fetch_assoc()) {
+    echo $row['recs']."<br>";
+}
+
+$conn->close();
 ?>
