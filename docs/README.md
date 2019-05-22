@@ -2,11 +2,11 @@ WearTheWeather
 
 Team:
 
-  Adenrele Adepoju
-  Nathan Cheng
-  Constance Hackett
-  Zayaan Islam
-  Kenneth Mateik
+  Adenrele Adepoju  
+  Nathan Cheng  
+  Constance Hackett  
+  Zayaan Islam  
+  Kenneth Mateik  
   
 
 WearTheWeather is a web application looking to help solve the problem of being unprepared for the weather. Functionality is included for
